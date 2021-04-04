@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -31,8 +30,6 @@ public class UserServiceImpl implements UserService {
         });
 
         User user = userAdapter.adapterUserDtoToUser(userDto);
-        String generatedSecuredPasswordHash = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12));
-        user.setPassword(generatedSecuredPasswordHash);
         user = userRepository.save(user);
         userDto = userAdapter.adapterUserToUserDto(user);
         return userDto;
@@ -52,8 +49,8 @@ public class UserServiceImpl implements UserService {
     public List<UserDto> getAll() {
         return userRepository.findAll()
             .stream()
-                .map(user -> userAdapter.adapterUserToUserDto(user))
-                    .collect(Collectors.toList());
+            .map(user -> userAdapter.adapterUserToUserDto(user))
+            .collect(Collectors.toList());
     }
 
 }

@@ -13,6 +13,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 
 @Data
 @Entity
@@ -39,7 +40,14 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String password;
 
+    public void setPassword(String password) {
+        this.password = encodePassword(password);
+    }
+
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
 
+    public String encodePassword(String password) {
+        return BCrypt.hashpw(password, BCrypt.gensalt(12));
+    }
 }
