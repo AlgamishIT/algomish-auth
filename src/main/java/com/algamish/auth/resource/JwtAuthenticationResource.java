@@ -1,4 +1,4 @@
-package com.algamish.auth.controller;
+package com.algamish.auth.resource;
 
 import com.algamish.auth.configuration.JwtTokenUtil;
 import com.algamish.auth.model.JwtRequest;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
 @RestController
-public class JwtAuthenticationController {
+public class JwtAuthenticationResource {
 
     @Autowired
     private AuthenticationManager authenticationManager;

@@ -1,4 +1,4 @@
-package com.algamish.auth.controller;
+package com.algamish.auth.resource;
 
 import com.algamish.auth.dto.UserDto;
 import com.algamish.auth.service.UserService;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/api/users")
-public class UserController {
+public class UserResource {
 
     @Autowired
     private UserService userService;

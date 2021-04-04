@@ -1,4 +1,4 @@
-package com.algamish.auth.controller.exception;
+package com.algamish.auth.resource.exception;
 
 import com.algamish.auth.service.exception.UserAlreadyExists;
 import javax.servlet.http.HttpServletRequest;

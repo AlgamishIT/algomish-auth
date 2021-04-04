@@ -1,4 +1,4 @@
-package com.algamish.auth.controller.exception;
+package com.algamish.auth.resource.exception;
 
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
