@@ -1,6 +1,5 @@
 package com.algamish.auth.model;
 
-import com.sun.istack.NotNull;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import javax.persistence.Column;
@@ -20,7 +19,6 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotNull
     @Column
     private String email;
 
