@@ -1,6 +1,7 @@
 package com.algamish.auth.util;
 
-import com.algamish.auth.model.User;
+import com.algamish.auth.adapter.UserAdapter;
+import com.algamish.auth.dto.UserDto;
 import com.algamish.auth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -12,13 +13,16 @@ public class DBUtil implements CommandLineRunner {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private UserAdapter userAdapter;
+
     @Override
     public void run(String... args) {
-        User user = new User();
-        user.setName("Admin Algamish");
-        user.setEmail("admin@algamish.com");
-        user.setPassword("admin");
+        UserDto userDto = new UserDto();
+        userDto.setName("Admin Algamish");
+        userDto.setEmail("admin@algamish.com");
+        userDto.setPassword("admin");
 
-        userService.createUser(user);
+        userService.createUser(userDto);
     }
 }

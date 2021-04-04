@@ -1,6 +1,6 @@
 package com.algamish.auth.controller;
 
-import com.algamish.auth.model.User;
+import com.algamish.auth.dto.UserDto;
 import com.algamish.auth.service.UserService;
 import java.net.URI;
 import java.util.List;
@@ -20,15 +20,15 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user) {
-        user = userService.createUser(user);
+    public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
+        userDto = userService.createUser(userDto);
         URI uri = URI.create("/users");
-        return ResponseEntity.created(uri).body(user);
+        return ResponseEntity.created(uri).body(userDto);
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> getUsers() {
-        List<User> users = userService.getAll();
+    public ResponseEntity<List<UserDto>> getAllUsers() {
+        List<UserDto> users = userService.getAll();
         return ResponseEntity.ok().body(users);
     }
 
